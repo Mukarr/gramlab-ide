@@ -107,7 +107,7 @@
               failOnViolation="false">
     <formatter type="xml" tofile="checkstyle_report.xml"/>
     <fileset dir="src" includes="**/*.java"/>
-    <fileset dir="unitex" includes="**/*.java">
+    <fileset dir="unitex" includes="**/*.java"/>
   </checkstyle>
 </target>
 
