@@ -28,5 +28,5 @@ notifications:
 
 # overwrite the default build step
 script: ant
-script: ant install
+script: ant checkstyle
 
