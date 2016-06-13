@@ -19,10 +19,10 @@
  *
  */
 /**
- * Unitex/GramLab Skeleton plugin
- * add by martinec
+ * Unitex/GramLab file-editor plugin
+ * add by Mukarram Tailor
  */ 
-package org.gramlab.plugins.skel;
+package org.gramlab.plugins.fileEditor;
 
 import ro.fortsoft.pf4j.PluginWrapper;
 import com.github.zafarkhaja.semver.Version;

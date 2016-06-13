@@ -40,9 +40,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.KeyStroke;
-import javax.swing.event.MenuEvent;
-import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.event.MenuEvent;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreePath;
 

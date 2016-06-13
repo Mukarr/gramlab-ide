@@ -31,6 +31,8 @@ import org.gramlab.api.Greeting;
 public class SkelGreeting implements Greeting {
   @Override
   public String getGreeting() {
+	  System.out.println("Skeleton!!");
     return "Welcome to the GramLab Skel plugin";
   }
+  
 }

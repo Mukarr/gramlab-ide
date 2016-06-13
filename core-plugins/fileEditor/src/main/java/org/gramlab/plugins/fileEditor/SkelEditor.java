@@ -18,14 +18,22 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA.
  *
  */
-package org.gramlab.api;
+package org.gramlab.plugins.fileEditor;
 
-import ro.fortsoft.pf4j.ExtensionPoint;
+import org.gramlab.api.Editor;
+
+import ro.fortsoft.pf4j.Extension;
 
 /**
- * Greeting Demo
- */
-public interface Greeting extends ExtensionPoint {
-  String getGreeting();
+ * Unitex/GramLab file-editor Greeting implementation
+ * add by Mukarram Tailor
+ */ 
+@Extension
+public class SkelEditor implements Editor {
+  @Override
+  public String getFrame() {
+	  System.out.println("Skeleton!!");
+    return "Welcome to the GramLab Skel plugin";
+  }
   
 }
