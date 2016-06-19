@@ -24,6 +24,7 @@
  */ 
 package org.gramlab.plugins.fileEditor;
 
+import ro.fortsoft.pf4j.Extension;
 import ro.fortsoft.pf4j.PluginWrapper;
 import com.github.zafarkhaja.semver.Version;
 

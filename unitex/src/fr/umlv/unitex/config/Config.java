@@ -20,11 +20,10 @@
  */
 package fr.umlv.unitex.config;
 
-import java.awt.GridLayout;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -35,37 +34,35 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-import java.lang.Process;
-import java.lang.ProcessBuilder;
-
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JDialog;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
+
+import org.gramlab.api.Greeting;
+import org.gramlab.api.Menu;
 
 import fr.umlv.unitex.Unitex;
 import fr.umlv.unitex.files.FileUtil;
 import fr.umlv.unitex.files.PersonalFileFilter;
 import fr.umlv.unitex.listeners.LanguageListener;
-import fr.umlv.unitex.svn.SvnMonitor;
-
 import fr.umlv.unitex.process.commands.CommandBuilder;
 import fr.umlv.unitex.process.commands.VersionInfoCommand;
-
+import fr.umlv.unitex.svn.SvnMonitor;
 import ro.fortsoft.pf4j.DefaultPluginManager;
-import ro.fortsoft.pf4j.PluginManager;
+import ro.fortsoft.pf4j.PluginWrapper;
 
 /**
  * This class contains general configuration information. It contains constants
@@ -261,6 +258,8 @@ public class Config {
         determineUnitexDir(appPath);
         determineCurrentUser();
         startPluginManager(new File(applicationDir, DEFAULT_PLUGINS_DIRECTORY));
+        
+        
         chooseInitialLanguage();
         setDefaultPreprocessingGraphs();
     }
@@ -737,7 +736,36 @@ public class Config {
 
       // start (active/resolved) the plugins
       pluginManager.startPlugins();
+      
+      List<Greeting> greetings = pluginManager.getExtensions(Greeting.class);
+      System.out.println(String.format("Found %d extensions for [ %s ]extension point '%s'", greetings.size(),pluginManager.getRuntimeMode() ,Greeting.class.getName()));
+      for (Greeting greeting : greetings) {
+          System.out.println(">>> " + greeting.getGreeting());
+      }
+      
+      List<Menu> menus = pluginManager.getExtensions(Menu.class);
+      System.out.println(String.format("Found %d extensions for extension point '%s'", menus.size(), Menu.class.getName()));
 
+
+      // print extensions from classpath (non plugin)
+      System.out.println(String.format("Extensions added by classpath:"));
+      Set<String> extensionClassNames = pluginManager.getExtensionClassNames(null);
+      for (String extension : extensionClassNames) {
+          System.out.println("   " + extension);
+      }
+
+      // print extensions for each started plugin
+      List<PluginWrapper> startedPlugins = pluginManager.getStartedPlugins();
+      for (PluginWrapper plugin : startedPlugins) {
+          String pluginId = plugin.getDescriptor().getPluginId();
+          System.out.println(String.format("Extensions added by plugin '%s':", pluginId));
+          extensionClassNames = pluginManager.getExtensionClassNames(pluginId);
+          for (String extension : extensionClassNames) {
+              System.out.println("   " + extension);
+          }
+      }
+      
+      
       // save plugins directory
       setPluginsDir(path);
     }

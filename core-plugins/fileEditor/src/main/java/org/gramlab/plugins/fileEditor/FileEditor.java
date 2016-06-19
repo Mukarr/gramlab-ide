@@ -20,20 +20,46 @@
  */
 package org.gramlab.plugins.fileEditor;
 
-import org.gramlab.api.Editor;
+import java.awt.event.ActionEvent;
+
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+
+import org.gramlab.api.Menu;
 
 import ro.fortsoft.pf4j.Extension;
 
 /**
- * Unitex/GramLab file-editor Greeting implementation
+ * Unitex/GramLab Internal File Editor implementation
  * add by Mukarram Tailor
  */ 
 @Extension
-public class SkelEditor implements Editor {
+public class FileEditor implements Menu {
   @Override
-  public String getFrame() {
-	  System.out.println("Skeleton!!");
-    return "Welcome to the GramLab Skel plugin";
+  public JMenu Addmenu(){
+	  
+	  JMenu m = new JMenu("File Edition");
+		Action n = new AbstractAction("New") {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		};
+		m.add(new JMenuItem(n));
+		Action open = new AbstractAction("Open") {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		};
+		m.add(new JMenuItem(open));
+		Action closeAll = new AbstractAction("Close all") {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		};
+		m.add(new JMenuItem(closeAll));
+		return m;
   }
-  
 }
