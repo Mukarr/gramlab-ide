@@ -37,13 +37,11 @@ public class Plugin extends GramLabPlugin {
 
 	@Override
 	public void start() {
-		System.out.println("Started "+ getWrapper().getPluginId());
 		log.debug("{} STARTED.", getWrapper().getPluginId());
 	}
 
 	@Override
 	public void stop() {
-		System.out.println("Ended "+ getWrapper().getPluginId());
 		log.debug("{} STOPPED.", getWrapper().getPluginId());
 	}
 

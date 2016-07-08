@@ -77,7 +77,6 @@
 		<property name="app-dir" location="${unitexHome}/App" />
 		<property name="app-lib-dir" location="${unitexHome}/App/lib" />
 	</target>
-
 	<target name="install" depends="install-init,dist">
 		<copy todir="${app-dir}">
 			<fileset dir="${dist-dir}" />

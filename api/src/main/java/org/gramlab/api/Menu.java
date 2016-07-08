@@ -27,8 +27,8 @@ import ro.fortsoft.pf4j.ExtensionPoint;
 /**
  * API to add menus to GramLab's menu bar
  */
-public interface Menu extends ExtensionPoint{
-	
+public interface Menu extends ExtensionPoint {
+
 	JMenu Addmenu();
 
 }

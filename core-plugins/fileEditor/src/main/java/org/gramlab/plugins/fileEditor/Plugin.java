@@ -24,11 +24,11 @@
  */ 
 package org.gramlab.plugins.fileEditor;
 
-import ro.fortsoft.pf4j.Extension;
-import ro.fortsoft.pf4j.PluginWrapper;
+import org.gramlab.api.GramLabPlugin;
+
 import com.github.zafarkhaja.semver.Version;
 
-import org.gramlab.api.GramLabPlugin;
+import ro.fortsoft.pf4j.PluginWrapper;
 
 public class Plugin extends GramLabPlugin {
 
@@ -38,13 +38,11 @@ public class Plugin extends GramLabPlugin {
 
 	@Override
 	public void start() {
-		System.out.println("Started "+ getWrapper().getPluginId());
 		log.debug("{} STARTED.", getWrapper().getPluginId());
 	}
 
 	@Override
 	public void stop() {
-		System.out.println("Ended "+ getWrapper().getPluginId());
 		log.debug("{} STOPPED.", getWrapper().getPluginId());
 	}
 

@@ -58,7 +58,6 @@ scm: {
 # a scope to each directory.
 sourceDirectories:
 - compile 'src/main/java'
-- compile '../../api/src/main/java' :api
 
 resourceDirectories:
 - compile 'src/main/resources'
@@ -91,14 +90,23 @@ dependencyDirectory: ext
 
 # Register the GramLab Maven repository
 registeredRepositories:
- - {
-      id: 'org.gramlab'
-      url: 'http://gramlab-ide.github.io/gramlab-ide-maven/'
-      affinity: [ 'org.gramlab' ]
+-{
+    id: 'gramlab-ide-mvn-repo'
+    url: 'https://raw.github.com/Mukarr/gramlab-ide/mvn-repo/'
+  }
+-{
+    id: 'gramlab-ide-unitex-mvn-repo'
+    url: 'https://raw.github.com/Mukarr/gramlab-ide/unitex-mvn-repo/'
+  }
+-{
+    id: 'gramlab-ide-gramlab-mvn-repo'
+    url: 'https://raw.github.com/Mukarr/gramlab-ide/gramlab-mvn-repo/'
   }
 
+repositories: 'central', 'gramlab-ide-mvn-repo', 'gramlab-ide-unitex-mvn-repo' , 'gramlab-ide-gramlab-mvn-repo'
 
-repositories: 'central', 'org.gramlab'
+#modules: 
+#- '../../api' @build.moxie
 
 # Convenience properties for dependencies
 properties: {
@@ -123,6 +131,9 @@ dependencies:
 - provided 'org.slf4j:slf4j-api:1.7.21'
 - provided 'org.slf4j:slf4j-simple:1.7.21'
 - provided 'ro.fortsoft.pf4j:pf4j:0.13.1'
+- provided 'fr.umlv:unitex:1.0.0-SNAPSHOT'
+- provided 'fr:gramlab:1.0.0-SNAPSHOT'
+- provided 'org.gramlab.api:gramlabapi:1.0.0-SNAPSHOT'
 - test    'junit'
 # Dependencies with the "build" scope are retrieved
 # and injected into the Ant runtime classpath

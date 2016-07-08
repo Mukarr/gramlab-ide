@@ -1,4 +1,4 @@
-# Unitex/GramLab IDE Skeleton plugin
+# Unitex/GramLab IDE File-Editor plugin
 
 > [Unitex/GramLab][unitexgramlab] is an open source, cross-platform, multilingual,
 lexicon- and grammar-based corpus processing suite
@@ -14,7 +14,7 @@ Synopsis means "see together" and shows example usage.
 ## INSTALLATION
 
 To install this plugin you can download the latest `.zip` release from
-[here](https://github.com/UnitexGramLab/gramlab-ide-plugin-skel/releases/latest)
+[here](https://github.com/UnitexGramLab/gramlab-ide-plugin-fileEditor/releases/latest)
 and manually copy it to your `App/plugins` directory.
 
 ## DESCRIPTION
@@ -31,7 +31,7 @@ Tells about how to contribute to the development of this plugin.
 
 ## AUTHOR
 
-Author Name <author.name@example.org>
+Mukarram Tailor <author.name@example.org>
 
 ## SEE ALSO
 
