@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- add by martinec
+ add by Mukarram Tailor
  This file is based on gitblit-powertools-plugin
  @see https://raw.githubusercontent.com/gitblit/gitblit-powertools-plugin
 -->
@@ -17,7 +17,7 @@
 	<!-- Download Moxie from it's Maven repository to user.home -->
 	<mkdir dir="${moxie.dir}" />
 	<get src="${moxie.url}/com/gitblit/moxie/moxie-toolkit/${moxie.version}/${moxie.jar}"
-		   dest="${moxie.dir}" skipexisting="true" verbose="true" />
+		   dest="${moxie.dir}" skipexisting="true" verbose="false" />
 	
 	<!-- Register Moxie tasks -->
 	<taskdef uri="antlib:org.moxie">
@@ -30,7 +30,7 @@
 		<!-- Setup Ant build from build.moxie and resolve dependencies.
 		     If it exists, build.properties is automatically loaded.
 		     Explicitly set mxroot allowing CI servers to override the default. -->
-		<mx:init verbose="no" mxroot="${moxie.dir}" />
+		<mx:init verbose="yes" mxroot="${moxie.dir}" />
 
 		<property name="registry.directory" value="${basedir}/../gramlab-ide-plugins-registry" />
 

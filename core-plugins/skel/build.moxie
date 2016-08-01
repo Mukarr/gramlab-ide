@@ -91,13 +91,12 @@ dependencyDirectory: ext
 
 # Register the GramLab Maven repository
 registeredRepositories:
- - {
-      id: 'gramlab-ide-mvn-repo'
-      url: 'https://raw.github.com/Mukarr/gramlab-ide/mvn-repo/'
+-{
+    id: 'org.gramlab'
+    url: 'http://UnitexGramLab.github.io/gramlab-ide-maven-artifacts/'
   }
 
-
-repositories: 'central', 'gramlab-ide-mvn-repo'
+repositories: 'central', 'org.gramlab'
 
 #modules: 
 #- '../../api/' @build.moxie

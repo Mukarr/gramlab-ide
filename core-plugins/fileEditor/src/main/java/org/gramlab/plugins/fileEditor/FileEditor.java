@@ -30,13 +30,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import org.gramlab.api.Menu;
+import org.gramlab.api.InternalFileEditor;
+import org.gramlab.api.GramlabMenu;
+import org.gramlab.core.GramlabConfigManager;
+import org.gramlab.core.gramlab.project.GramlabProject;
+import org.gramlab.core.gramlab.project.GramlabProjectManager;
+import org.gramlab.core.umlv.unitex.common.project.manager.GlobalProjectManager;
+import org.gramlab.core.umlv.unitex.frames.InternalFrameManager;
 
-import fr.gramlab.GramlabConfigManager;
-import fr.gramlab.project.GramlabProject;
-import fr.gramlab.project.GramlabProjectManager;
-import fr.umlv.unitex.common.project.manager.GlobalProjectManager;
-import fr.umlv.unitex.frames.InternalFrameManager;
 import ro.fortsoft.pf4j.Extension;
 
 /**
@@ -44,7 +45,7 @@ import ro.fortsoft.pf4j.Extension;
  * add by Mukarram Tailor
  */ 
 @Extension
-public class FileEditor implements Menu {
+public class FileEditor implements GramlabMenu, InternalFileEditor{
   @Override
   public JMenu Addmenu(){
 	  
