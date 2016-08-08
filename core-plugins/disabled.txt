@@ -19,6 +19,7 @@
 # plugin-manager
 # stats-generator
 # svn-connector
+# image-exporter
 # transcoder
 # treecloud
 # welcome-wizard
