@@ -52,7 +52,11 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
 
 import org.gramlab.api.Greeting;
+import org.gramlab.core.GramlabConfigManager;
+import org.gramlab.core.gramlab.project.GramlabProject;
+import org.gramlab.core.gramlab.project.GramlabProjectManager;
 import org.gramlab.core.umlv.unitex.Unitex;
+import org.gramlab.core.umlv.unitex.common.project.manager.GlobalProjectManager;
 import org.gramlab.core.umlv.unitex.files.FileUtil;
 import org.gramlab.core.umlv.unitex.files.PersonalFileFilter;
 import org.gramlab.core.umlv.unitex.listeners.LanguageListener;
@@ -464,7 +468,22 @@ public class Config {
         transcodeDialogBox.setDialogType(JFileChooser.OPEN_DIALOG);
         transcodeDialogBox.setMultiSelectionEnabled(true);
         transcodeDialogBox.setDialogTitle("Select files to transcode");
-        transcodeDialogBox.setCurrentDirectory(Config.getCurrentCorpusDir());
+        File dir = null;
+        if(GlobalProjectManager.getGlobalProjectManager() instanceof GramlabProjectManager){
+        	GramlabProject p = GlobalProjectManager.getAs(GramlabProjectManager.class)
+					.getCurrentProject();
+			if (p == null){
+				
+				dir = GramlabConfigManager.getWorkspaceDirectory();
+			}
+			else{
+				dir = p.getProjectDirectory();
+			}
+        }
+        else{
+        	dir = Config.getCurrentCorpusDir();
+        }
+        transcodeDialogBox.setCurrentDirectory(dir);
         return transcodeDialogBox;
     }
 
